@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
+import { Subject} from 'rxjs';
 
 @Component({
-  selector: 'app-root',
+  selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'annotation';
+  parentSubject:Subject<string> = new Subject();
+
+  constructor() {
+
+  }
+
+ cardAnimation(value: string) {
+    this.parentSubject.next(value);
+  }
+
 }
